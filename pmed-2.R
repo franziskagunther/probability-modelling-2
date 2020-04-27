@@ -19,7 +19,7 @@ neglogLikelihood <- function(theta, obs) {
 
 n <- length(dat$time)
 obs <- c(n, dat$time, dat$drug_usage)
-theta_init = c(80, -450, 650, 300, -1) 
+theta_init = c(80, -450, 650, 300, -1) # change to theta_init = c(80, 0, 0, 0, 1)
 
 out <- optim(theta_init, neglogLikelihood, gr = NULL, obs, method = "L-BFGS-B", lower = c(-Inf, -Inf, -Inf, -Inf, 0.05), upper = c(Inf, Inf, Inf, Inf, Inf))
 
