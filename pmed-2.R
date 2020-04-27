@@ -51,3 +51,10 @@ dat_pred <- data.frame(time=c(dat$time, missing_x), drug_usage=c(dat$drug_usage,
 plt = ggplot(dat_pred, aes(x=time, y=drug_usage))
 plt = plt + geom_point()
 print(plt)
+
+# determine local minimum of function (number of days before patient relapses)
+
+f <- function(x) {a + b*x + c*x^2 + d*x^3}
+xmin <- optimize(f, interval = c(0, 30), tol = 0.0001)
+print(xmin$minimum)
+
